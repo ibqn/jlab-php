@@ -8,9 +8,10 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     && apt-get clean
 #    rm -rf /var/lib/apt/lists/*
 
+ARG ZMQ_VERSION='4.1.7'
 # install zeromq and zmq php extension 
-RUN wget https://github.com/zeromq/zeromq4-1/releases/download/v4.1.5/zeromq-4.1.5.tar.gz && \
-    tar -xvf zeromq-4.1.5.tar.gz && \
+RUN wget "https://github.com/zeromq/zeromq4-1/releases/download/v${ZMQ_VERSION}/zeromq-${ZMQ_VERSION}.tar.gz" && \
+    tar -xvf "zeromq-${ZMQ_VERSION}.tar.gz" && \
     cd zeromq-* && \
     ./configure && make && make install && \
     printf "\n" | pecl install zmq-beta && \
