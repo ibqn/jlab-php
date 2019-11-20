@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  # jupyterlab with php kernel
+  jlab-php:
+    image: jlab_php
+    container_name: jlab_php
+    build: .
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+    ports:
+      - "9999:8888"
+    volumes:
+      - ./data:/home/jovyan/work
+    working_dir: /home/jovyan/work
+
+
+# docker run --rm -p 10000:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work jupyter/pyspark-notebook
