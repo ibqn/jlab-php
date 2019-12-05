@@ -16,4 +16,4 @@ python3 -m pip install --upgrade --requirement './requirements.txt'
 
 
 # generate a freeze file with
-# pip freeze | grep -v 'pkg-resources' | sort > freezed-requirements.txt
+# pip freeze | grep -v 'pkg-resources' | sort > frozen-requirements.txt
